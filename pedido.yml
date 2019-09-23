@@ -1,0 +1,21 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+      registryFetchIntervalSeconds: 5
+      
+server:
+  port: 9091
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/curso
+  datasource:
+    url: jdbc:mysql://localhost:3306/cadastro?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: root
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest 
