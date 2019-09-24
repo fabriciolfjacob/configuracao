@@ -17,7 +17,7 @@ spring:
       ddl-auto: update
       dialect: org.hibernate.dialect.MySQL5Dialect
   rabbitmq:
-    host: rabbit
+    host: rabbitmq
     port: 5672
     username: guest
     password: guest      
