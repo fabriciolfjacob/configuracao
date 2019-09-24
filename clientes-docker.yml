@@ -7,7 +7,7 @@ server:
   port: ${9090}
 spring:
   application:
-    name: cadastro-clientes
+    name: clientes
   datasource:
     url: jdbc:mysql://mysql:3306/cadastro?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false
     username: root
