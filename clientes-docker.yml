@@ -20,4 +20,10 @@ spring:
     host: rabbitmq
     port: 5672
     username: guest
-    password: guest      
+    password: guest
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"    
