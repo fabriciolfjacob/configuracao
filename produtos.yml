@@ -1,28 +1,36 @@
+app:
+  discovery: localhost
+  rabbitmq: localhost
+  mongodb: localhost
+  
+
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://${app.discovery}:8761/eureka
       registryFetchIntervalSeconds: 5
       
-server:
-  port: 8082
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/curso
-  datasource:
-    url: jdbc:mysql://localhost:3306/cadastro?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false
-    username: root
-    password: root
+      uri: mongodb://${app.mongodb}:27017/curso
   rabbitmq:
-    host: localhost
+    host: ${app.rabbitmq}
     port: 5672
     username: guest
     password: guest      
-
   
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+
+
+---
+spring.profiles: docker
+app:
+  discovery: eureka
+  rabbitmq: rabbitmq
+  mongodb: mongo
+  
