@@ -35,6 +35,7 @@ management:
 
 
 ---
+spring.profiles: docker
 app:
   discovery: eureka
   rabbitmq: rabbitmq
