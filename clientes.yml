@@ -1,14 +1,20 @@
+app:
+  discovery: localhost
+  rabbitmq: localhost
+  mysql: localhost
+  
+
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://${app.discovery}:8761/eureka
       registryFetchIntervalSeconds: 5
       
 spring:
   application:
     name: clientes
   datasource:
-    url: jdbc:mysql://localhost:3306/cadastro?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:mysql://${app.mysql}:3306/cadastro?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false
     username: root
     password: root
   jpa:
@@ -16,7 +22,7 @@ spring:
       ddl-auto: update
       dialect: org.hibernate.dialect.MySQL5Dialect
   rabbitmq:
-    host: localhost
+    host: ${app.rabbitmq}
     port: 5672
     username: guest
     password: guest      
@@ -26,3 +32,11 @@ management:
     web:
       exposure:
         include: "*"
+
+
+---
+app:
+  discovery: eureka
+  rabbitmq: rabbitmq
+  mysql: mysql
+  
